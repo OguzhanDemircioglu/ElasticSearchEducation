@@ -59,4 +59,4 @@ PUT satis/_doc/12
 
 GET satis/_doc/12
 
-
+POST /_security/api_key
