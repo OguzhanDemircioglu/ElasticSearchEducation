@@ -5,11 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
-import org.w3c.dom.ranges.Range;
 
 @Document(indexName = "musteri")
 @TypeAlias("musteriClass")
@@ -22,9 +21,20 @@ public class Musteri {
     @Id
     String id;
 
-    @Field(name = "musteri_adi")
-    String name;
+    @Field(name = "first_name")
+    String firstName;
 
-    @Field(type = FieldType.Integer_Range)
-    Range validAge;
+    @Field(name = "last_name")
+    String lastName;
+
+    @Field(name = "age")
+    int age;
+
+    @Transient
+    String fullName;
+
+    @Field(name = "is_active")
+    Boolean isActive;
+
+
 }
